@@ -1,6 +1,4 @@
-
-
-const currentCity = (state = 'New York', action) => {
+const currentCity = (state = 'Indianapolis', action) => {
     switch (action.type) {
       case 'SET_CITY':
         return action.city
