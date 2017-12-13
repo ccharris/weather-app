@@ -1,9 +1,10 @@
 export const setCity = city => {
-  return {
-    type: 'SET_CITY',
-    city: city
-  }
+    return {
+        type: 'SET_CITY',
+        city: city
+    }
 }
+
 export const updateCurrentWeather = (temp, description, humidity, pressure) => {
     return {
       type: 'UPDATE_CURRENT_WEATHER',
