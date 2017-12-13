@@ -13,9 +13,9 @@ const LocationSetter = styled.input.attrs({
   type: 'text',
 })`
   float:right;
-  color: #42f1f4;
+  color: darkgray;
   font-size: 1em;
-  border: 2px solid #42f1f4;
+  border: 2px solid #d8d8d8;
 	border-radius: 3px;
   padding: 2px;
 `;
