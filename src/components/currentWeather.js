@@ -7,6 +7,8 @@ import styled from 'styled-components';
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
   padding: 10px;
+  width: 35%;
+  float: left;
 `;
 
 class currentWeather extends Component {

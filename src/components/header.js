@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { setCity, grabWeather } from '../actions';
+import { setCity, grabWeather, grabForecast } from '../actions';
 import { connect } from 'react-redux';
 
 const HeaderWrapper = styled.div`
@@ -13,11 +13,12 @@ const LocationSetter = styled.input.attrs({
   type: 'text',
 })`
   float:right;
-  color: darkgray;
+  color: #3d3d3d;
   font-size: 1em;
-  border: 2px solid #d8d8d8;
+  border: 1px solid #3d3d3d;
 	border-radius: 3px;
   padding: 2px;
+  margin-bottom: 5px;
 `;
 
 
@@ -29,6 +30,7 @@ class Header extends Component {
   changeCity(event){
     this.props.dispatch(setCity(event.target.value));
     this.props.dispatch(grabWeather(event.target.value));
+    this.props.dispatch(grabForecast(event.target.value));
   }
   render(){
     return(

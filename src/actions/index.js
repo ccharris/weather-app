@@ -22,6 +22,19 @@ export const grabWeather =  city  => {
         .then(json => dispatch(weatherFetchDataSuccess(json)));
 }
 
+export const grabForecast =  city  => {
+    return (dispatch) => fetch(`http://api.openweathermap.org/data/2.5/forecast?APPID=${api_key}&q=${city}&units=imperial`)
+        .then(response => response.json())
+        .then( json => dispatch(forecastFetchDataSuccess(json)));
+}
+
+export const forecastFetchDataSuccess = payload => {
+    return {
+        type: 'FETCH_FORECAST_SUCCESS',
+        payload
+    };
+}
+
 export const weatherFetchDataSuccess = payload => {
     return {
         type: 'FETCH_WEATHER_SUCCESS',
