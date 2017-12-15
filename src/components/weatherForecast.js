@@ -5,14 +5,14 @@ import { grabForecast } from '../actions';
 import styled from 'styled-components';
 import DailyWeather from './dailyWeather';
 
+
 const ForecastWrapper = styled.div`
-  background-color: #800040;
-  padding: 10px;
-  width: 61%;
+  background-color: #a3a1a1;
+  padding: 5px;
+  width: 64%;
   float: right;
+  text-align: center;
 `;
-
-
 
 class weatherForecast extends Component {
   componentWillMount(){
@@ -49,8 +49,7 @@ class weatherForecast extends Component {
     var fiveDays = new Date(new Date().setDate(new Date().getDate() + 5)).getDay();
     return (
         <ForecastWrapper>
-            <h2> {this.props.city} Forecast </h2>
-            <DailyWeather day="Today" temp={this.props.todayTemp} description={this.props.todayDescription} humidity={this.props.todayHumidity} pressure={this.props.todayPressure}/>
+            <h2> 5 Day {this.props.city} Forecast </h2>
             <DailyWeather day="Tomorrow" temp={this.props.tomorrowTemp} description={this.props.tomorrowDescription} humidity={this.props.tomorrowHumidity} pressure={this.props.tomorrowPressure}/>
             <DailyWeather day={this.convertDay(twoDays)} temp={this.props.twoDaysTemp} description={this.props.twoDaysDescription} humidity={this.props.twoDaysHumidity} pressure={this.props.twoDaysPressure}/>
             <DailyWeather day={this.convertDay(threeDays)} temp={this.props.threeDaysTemp} description={this.props.threeDaysDescription} humidity={this.props.threeDaysHumidity} pressure={this.props.threeDaysPressure}/>
@@ -63,10 +62,6 @@ class weatherForecast extends Component {
 function mapStateToProps(state) {
 	return {
     city: state.currentCity,
-    todayDescription: state.weatherForecast[0].todayDescription,
-    todayTemp: state.weatherForecast[0].todayTemp,
-    todayHumidity: state.weatherForecast[0].todayHumidity, 
-    todayPressure: state.weatherForecast[0].todayPressure,
     tomorrowDescription: state.weatherForecast[0].tomorrowDescription, 
     tomorrowTemp: state.weatherForecast[0].tomorrowTemp,
     tomorrowHumidity: state.weatherForecast[0].tomorrowHumidity, 

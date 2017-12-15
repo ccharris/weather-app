@@ -3,55 +3,38 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { grabWeather } from '../actions';
 import styled from 'styled-components';
+import WeatherIcons from 'react-weathericons';
 
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
   padding: 10px;
-  width: 35%;
+  width: 33%;
   float: left;
+  text-align: center;
 `;
 
 class currentWeather extends Component {
   componentWillMount(){
     this.props.dispatch(grabWeather(this.props.city));
-    this.determineTempIcon = this.determineTempIcon.bind(this);
     this.determineWeatherIcon = this.determineWeatherIcon.bind(this);
-  }
-
-  determineTempIcon(){
-    let temp = this.props.temp;
-    switch (temp) {
-      case temp > 90:
-      return 'fa fa-thermometer-full';
-      case temp > 70:
-      return 'fa fa-thermometer-three-quarters';
-      case temp > 50:
-      return 'fa fa-thermometer-half'
-      case temp > 30:
-      return 'fa fa-thermometer-quarter'
-      case temp < 30:
-      return 'fa fa-thermometer-empty'
-      default:
-      return 'fa fa-thermometer-half'
-    }
   }
 
   determineWeatherIcon(){
     switch (this.props.description){
       case 'clear sky':
-      return "fa fa-sun-o";
+      return "day-sunny";
       case 'few clouds':
-      return "fa fa-sun-o";
+      return "day-cloudy";
       case 'shower rain':
-      return "fa fa-tint"
+      return "showers"
       case 'rain':
-      return "fa fa-tint"
+      return "rain"
       case 'thunderstorm':
-      return "fa fa-bolt"
+      return "thunderstorm"
       case 'snow':
-      return "fa fa-snowflake-o";
+      return "snow";
       default:
-      return 'fa fa-cloud';
+      return 'cloud';
     }
   }
   
@@ -59,9 +42,10 @@ class currentWeather extends Component {
     return (
       <CurrentWeatherWrapper>
         <h2>Current {this.props.city} Weather</h2>
-        <p><i className={this.determineTempIcon()} aria-hidden="true"></i> {this.props.temp} degrees and <i className={this.determineWeatherIcon()} aria-hidden="true"></i> {this.props.description} </p>
-        <p>{this.props.humidity}% humidity</p>
-        <p> The pressure is currently {this.props.pressure} hPa.</p>
+        <WeatherIcons name={this.determineWeatherIcon()} size ='5x' />
+        <p>
+         {this.props.temp} <WeatherIcons name='fahrenheit'  /> & {this.props.description} </p>
+        <p>{this.props.humidity} <WeatherIcons name='humidity'  /> {this.props.pressure} <WeatherIcons name='barometer' /></p>
       </CurrentWeatherWrapper>
     )
   }
