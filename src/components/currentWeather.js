@@ -8,9 +8,14 @@ import WeatherIcons from 'react-weathericons';
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
   padding: 10px;
-  width: 33%;
+  width: 30%;
   float: left;
   text-align: center;
+  height: 300px;
+  margin-top: 5px;
+`;
+
+const currentWeatherText = styled.p`
 `;
 
 class currentWeather extends Component {
@@ -43,8 +48,7 @@ class currentWeather extends Component {
       <CurrentWeatherWrapper>
         <h2>Current {this.props.city} Weather</h2>
         <WeatherIcons name={this.determineWeatherIcon()} size ='5x' />
-        <p>
-         {this.props.temp} <WeatherIcons name='fahrenheit'  /> & {this.props.description} </p>
+        <p>{this.props.temp} <WeatherIcons name='fahrenheit'  /> & {this.props.description} </p>
         <p>{this.props.humidity} <WeatherIcons name='humidity'  /> {this.props.pressure} <WeatherIcons name='barometer' /></p>
       </CurrentWeatherWrapper>
     )

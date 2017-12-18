@@ -6,11 +6,8 @@ import styled from 'styled-components';
 import DailyWeather from './dailyWeather';
 
 
-const ForecastWrapper = styled.div`
-  background-color: #a3a1a1;
-  padding: 5px;
-  width: 64%;
-  float: right;
+const ForecastWrapper = styled.span`
+  float: left;
   text-align: center;
 `;
 
@@ -49,7 +46,6 @@ class weatherForecast extends Component {
     var fiveDays = new Date(new Date().setDate(new Date().getDate() + 5)).getDay();
     return (
         <ForecastWrapper>
-            <h2> 5 Day {this.props.city} Forecast </h2>
             <DailyWeather day="Tomorrow" temp={this.props.tomorrowTemp} description={this.props.tomorrowDescription} humidity={this.props.tomorrowHumidity} pressure={this.props.tomorrowPressure}/>
             <DailyWeather day={this.convertDay(twoDays)} temp={this.props.twoDaysTemp} description={this.props.twoDaysDescription} humidity={this.props.twoDaysHumidity} pressure={this.props.twoDaysPressure}/>
             <DailyWeather day={this.convertDay(threeDays)} temp={this.props.threeDaysTemp} description={this.props.threeDaysDescription} humidity={this.props.threeDaysHumidity} pressure={this.props.threeDaysPressure}/>

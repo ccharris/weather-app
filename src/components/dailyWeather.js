@@ -4,16 +4,18 @@ import WeatherIcons from 'react-weathericons';
 
 const DailyWrapper = styled.div`
   background-color: teal;
-  width: 30%;
+  width: 46%;
+  margin-left: 5px;
+  margin-top: 5px;
   float: left;
-  margin: 5px;
-  padding: 5px;
   text-align: center;
+  height: 300px;
+  padding: 10px;
 `
 const DailyWeather = ({day, temp, description, humidity, pressure}) => {
     return(
     <DailyWrapper>
-        <h3> {day} at Noon </h3>
+        <h2> {day} </h2>
         <p> {temp} <WeatherIcons name='fahrenheit'  /> & {description} </p>
         <p>{humidity} <WeatherIcons name='humidity'  /> {pressure} <WeatherIcons name='barometer'  />  </p>
     </DailyWrapper>
