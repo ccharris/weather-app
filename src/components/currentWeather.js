@@ -8,7 +8,7 @@ import WeatherIcons from 'react-weathericons';
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
   padding: 10px;
-  width: 30%;
+  width: 15%;
   float: left;
   text-align: center;
   height: 300px;

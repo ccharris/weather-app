@@ -4,9 +4,10 @@ import WeatherIcons from 'react-weathericons';
 
 const DailyWrapper = styled.div`
   background-color: teal;
-  width: 46%;
+  width: 17%;
   margin-left: 5px;
   margin-top: 5px;
+  margin-right: 0;
   float: left;
   text-align: center;
   height: 300px;
