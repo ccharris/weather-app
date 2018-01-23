@@ -9,7 +9,7 @@ import DailyWeather from './dailyWeather';
 const ForecastWrapper = styled.span`
   float: left;
   text-align: center;
-  width: 82%;
+  width: 83.2%;
 `;
 
 class weatherForecast extends Component {

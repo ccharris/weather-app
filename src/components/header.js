@@ -4,7 +4,7 @@ import { setCity, grabWeather, grabForecast } from '../actions';
 import { connect } from 'react-redux';
 
 const HeaderWrapper = styled.div`
-  background-color: teal;
+  background-color: #BA384D;
   height: 100px;
   text-align: center;
   padding: 10px;
