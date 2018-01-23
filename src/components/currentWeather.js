@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { grabWeather } from '../actions';
+import { grabCoords } from '../actions';
 import styled from 'styled-components';
 import WeatherIcons from 'react-weathericons';
+import Skycons from 'react-animated-weather';
 
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
@@ -20,36 +21,17 @@ const currentWeatherText = styled.p`
 
 class currentWeather extends Component {
   componentWillMount(){
-    this.props.dispatch(grabWeather(this.props.city));
-    this.determineWeatherIcon = this.determineWeatherIcon.bind(this);
+    this.props.dispatch(grabCoords(this.props.city));
   }
 
-  determineWeatherIcon(){
-    switch (this.props.description){
-      case 'clear sky':
-      return "day-sunny";
-      case 'few clouds':
-      return "day-cloudy";
-      case 'shower rain':
-      return "showers"
-      case 'rain':
-      return "rain"
-      case 'thunderstorm':
-      return "thunderstorm"
-      case 'snow':
-      return "snow";
-      default:
-      return 'cloud';
-    }
-  }
-  
   render () {
     return (
       <CurrentWeatherWrapper>
         <h2>Current {this.props.city} Weather</h2>
-        <WeatherIcons name={this.determineWeatherIcon()} size ='5x' />
+        <Skycons icon={this.props.icon} color='white' />
         <p>{this.props.temp} <WeatherIcons name='fahrenheit'  /> & {this.props.description} </p>
         <p>{this.props.humidity} <WeatherIcons name='humidity'  /> {this.props.pressure} <WeatherIcons name='barometer' /></p>
+        <p> Feels like {this.props.feelsLike} <WeatherIcons name='fahrenheit'  /></p>
       </CurrentWeatherWrapper>
     )
   }
@@ -60,7 +42,9 @@ function mapStateToProps(state) {
     temp: state.currentWeather[0].temp,
     description: state.currentWeather[0].description,
     humidity: state.currentWeather[0].humidity,
-    pressure: state.currentWeather[0].pressure
+    pressure: state.currentWeather[0].pressure,
+    icon: state.currentWeather[0].icon,
+    feelsLike: state.currentWeather[0].feelsLike
 	};
 }
 

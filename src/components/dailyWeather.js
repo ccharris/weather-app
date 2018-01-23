@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 import WeatherIcons from 'react-weathericons';
+import Skycons from 'react-animated-weather';
 
 const DailyWrapper = styled.div`
   background-color: teal;
@@ -13,12 +14,14 @@ const DailyWrapper = styled.div`
   height: 300px;
   padding: 10px;
 `
-const DailyWeather = ({day, temp, description, humidity, pressure}) => {
+const DailyWeather = ({day, tempHigh, description, tempLow, icon}) => {
     return(
     <DailyWrapper>
         <h2> {day} </h2>
-        <p> {temp} <WeatherIcons name='fahrenheit'  /> & {description} </p>
-        <p>{humidity} <WeatherIcons name='humidity'  /> {pressure} <WeatherIcons name='barometer'  />  </p>
+        <Skycons icon={icon} color='white' />
+        <p> High of: {tempHigh} <WeatherIcons name='fahrenheit'  />  </p>
+        <p> Low of: {tempLow} <WeatherIcons name='fahrenheit'  /> </p>
+        <p> {description} </p>
     </DailyWrapper>
     );
 }

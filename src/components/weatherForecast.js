@@ -14,7 +14,6 @@ const ForecastWrapper = styled.span`
 
 class weatherForecast extends Component {
   componentWillMount(){
-    this.props.dispatch(grabForecast(this.props.city));
     this.convertDay = this.convertDay.bind(this);
   }
 
@@ -47,11 +46,11 @@ class weatherForecast extends Component {
     var fiveDays = new Date(new Date().setDate(new Date().getDate() + 5)).getDay();
     return (
         <ForecastWrapper>
-            <DailyWeather day="Tomorrow" temp={this.props.tomorrowTemp} description={this.props.tomorrowDescription} humidity={this.props.tomorrowHumidity} pressure={this.props.tomorrowPressure}/>
-            <DailyWeather day={this.convertDay(twoDays)} temp={this.props.twoDaysTemp} description={this.props.twoDaysDescription} humidity={this.props.twoDaysHumidity} pressure={this.props.twoDaysPressure}/>
-            <DailyWeather day={this.convertDay(threeDays)} temp={this.props.threeDaysTemp} description={this.props.threeDaysDescription} humidity={this.props.threeDaysHumidity} pressure={this.props.threeDaysPressure}/>
-            <DailyWeather day={this.convertDay(fourDays)} temp={this.props.fourDaysTemp} description={this.props.fourDaysDescription} humidity={this.props.fourDaysHumidity} pressure={this.props.fourDaysPressure}/>
-            <DailyWeather day={this.convertDay(fiveDays)} temp={this.props.fiveDaysTemp} description={this.props.fiveDaysDescription} humidity={this.props.fiveDaysHumidity} pressure={this.props.fiveDaysPressure}/>
+          <DailyWeather day="Tomorrow" tempHigh={this.props.tomorrowTempHigh} description={this.props.tomorrowDescription} tempLow={this.props.tomorrowTempLow} icon={this.props.tomorrowIcon}/>
+          <DailyWeather day={this.convertDay(twoDays)} tempHigh={this.props.twoDaysTempHigh} description={this.props.twoDaysDescription} tempLow={this.props.twoDaysTempLow} icon={this.props.twoDaysIcon}/>
+          <DailyWeather day={this.convertDay(threeDays)} tempHigh={this.props.threeDaysTempHigh} description={this.props.threeDaysDescription} tempLow={this.props.threeDaysTempLow} icon={this.props.threeDaysIcon}/>
+          <DailyWeather day={this.convertDay(fourDays)} tempHigh={this.props.fourDaysTempHigh} description={this.props.fourDaysDescription} tempLow={this.props.fourDaysTempLow} icon={this.props.fourDaysIcon}/>
+          <DailyWeather day={this.convertDay(fiveDays)} tempHigh={this.props.fiveDaysTempHigh} description={this.props.fiveDaysDescription} tempLow={this.props.fiveDaysTempLow} icon={this.props.fiveDaysIcon}/>
         </ForecastWrapper>
     )
   }
@@ -59,26 +58,26 @@ class weatherForecast extends Component {
 function mapStateToProps(state) {
 	return {
     city: state.currentCity,
-    tomorrowDescription: state.weatherForecast[0].tomorrowDescription, 
-    tomorrowTemp: state.weatherForecast[0].tomorrowTemp,
-    tomorrowHumidity: state.weatherForecast[0].tomorrowHumidity, 
-    tomorrowPressure: state.weatherForecast[0].tomorrowPressure,
-    twoDaysDescription: state.weatherForecast[0].twoDaysDescription, 
-    twoDaysTemp: state.weatherForecast[0].twoDaysTemp, 
-    twoDaysHumidity: state.weatherForecast[0].twoDaysHumidity,
-    twoDaysPressure: state.weatherForecast[0].twoDaysPressure,
-    threeDaysDescription: state.weatherForecast[0].threeDaysDescription, 
-    threeDaysTemp: state.weatherForecast[0].threeDaysTemp, 
-    threeDaysHumidity: state.weatherForecast[0].threeDaysHumidity,
-    threeDaysPressure: state.weatherForecast[0].threeDaysPressure,
-    fourDaysDescription: state.weatherForecast[0].fourDaysDescription,
-    fourDaysTemp: state.weatherForecast[0].fourDaysTemp, 
-    fourDaysHumidity: state.weatherForecast[0].fourDaysHumidity, 
-    fourDaysPressure: state.weatherForecast[0].fourDaysPressure,
-    fiveDaysDescription: state.weatherForecast[0].fiveDaysDescription, 
-    fiveDaysTemp: state.weatherForecast[0].fiveDaysTemp, 
-    fiveDaysHumidity: state.weatherForecast[0].fiveDaysHumidity, 
-    fiveDaysPressure: state.weatherForecast[0].fiveDaysPressure
+    tomorrowDescription: state.currentWeather[0].tomorrowDescription, 
+    tomorrowTempHigh: state.currentWeather[0].tomorrowTempHigh,
+    tomorrowTempLow: state.currentWeather[0].tomorrowTempLow,
+    tomorrowIcon: state.currentWeather[0].tomorrowIcon,
+    twoDaysDescription: state.currentWeather[0].twoDaysDescription, 
+    twoDaysTempHigh: state.currentWeather[0].twoDaysTempHigh,
+    twoDaysTempLow: state.currentWeather[0].twoDaysTempLow,
+    twoDaysIcon: state.currentWeather[0].twoDaysIcon,
+    threeDaysDescription: state.currentWeather[0].threeDaysDescription, 
+    threeDaysTempHigh: state.currentWeather[0].threeDaysTempHigh,
+    threeDaysTempLow: state.currentWeather[0].threeDaysTempLow,
+    threeDaysIcon: state.currentWeather[0].threeDaysIcon,
+    fourDaysDescription: state.currentWeather[0].fourDaysDescription, 
+    fourDaysTempHigh: state.currentWeather[0].fourDaysTempHigh,
+    fourDaysTempLow: state.currentWeather[0].fourDaysTempLow,
+    fourDaysIcon: state.currentWeather[0].fourDaysIcon,
+    fiveDaysDescription: state.currentWeather[0].fiveDaysDescription, 
+    fiveDaysTempHigh: state.currentWeather[0].fiveDaysTempHigh,
+    fiveDaysTempLow: state.currentWeather[0].fiveDaysTempLow,
+    fiveDaysIcon: state.currentWeather[0].fiveDaysIcon,
 	};
 }
 

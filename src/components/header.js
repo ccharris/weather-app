@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { setCity, grabWeather, grabForecast } from '../actions';
+import { grabCoords } from '../actions';
 import { connect } from 'react-redux';
 
 const HeaderWrapper = styled.div`
@@ -28,9 +28,7 @@ class Header extends Component {
       this.changeCity = this.changeCity.bind(this);
   }
   changeCity(event){
-    this.props.dispatch(setCity(event.target.value));
-    this.props.dispatch(grabWeather(event.target.value));
-    this.props.dispatch(grabForecast(event.target.value));
+    this.props.dispatch(grabCoords(event.target.value));;
   }
   render(){
     return(
