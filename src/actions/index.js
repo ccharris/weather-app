@@ -22,10 +22,13 @@ export const grabWeather =  (lat, long) => {
     .then(response => {
         if(response.ok){
             response.json().then(   
-                data => dispatch(weatherFetchDataSuccess(data))
+                data => {
+                    dispatch(weatherFetchDataSuccess(data))
+                    dispatch(setError(''))
+                }
             )
         } else {
-            dispatch(weatherFetchDataFailure)
+            dispatch(setError('No response from weather API'))
         }
     })
 }
@@ -38,11 +41,16 @@ export const grabCoords = city => {
         if(response.ok){
             response.json().then(   
                 data => {
-                dispatch(setCity(data.results[0].address_components[0].long_name))
-                dispatch(grabWeather(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng))
-                })
+                    if(data.status === 'ZERO_RESULTS'){
+                        dispatch(setError('Cannot find location'))
+                    } else {
+                        dispatch(setCity(data.results[0].address_components[0].long_name))
+                        dispatch(grabWeather(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng))
+                        dispatch(setError(''))
+                    }
+                  })
         } else {
-            dispatch(weatherFetchDataFailure)
+            dispatch(setError('No response from Location API'))
         }
     })
     
@@ -54,8 +62,9 @@ export const weatherFetchDataSuccess = payload => {
         payload
     };
 }
-export const weatherFetchDataFailure = () => {
+export const setError = error => {
     return {
-        type: 'FETCH_WEATHER_FAILURE'
+        type: 'SET_ERROR',
+        error
     };
 }

@@ -47,7 +47,7 @@ class Header extends Component {
   render(){
     return(
         <HeaderWrapper>
-            <h1>Weather Cat <i class="fa fa-paw" aria-hidden="true"></i></h1>
+            <h1>Weather Cat <i className="fa fa-paw" aria-hidden="true"></i></h1>
             <LocationSetter placeholder={this.props.currentCity} onBlur={this.changeCity}></LocationSetter>
         </HeaderWrapper>
     )

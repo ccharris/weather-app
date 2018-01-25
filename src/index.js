@@ -8,8 +8,8 @@ import weatherApp from './reducers'
 import thunk from 'redux-thunk';
 
   const store = createStore(
-    weatherApp,
-    applyMiddleware(thunk)
+    weatherApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(thunk),
   );
 
 
