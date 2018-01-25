@@ -4,8 +4,9 @@ import WeatherIcons from 'react-weathericons';
 import Skycons from 'react-animated-weather';
 
 const DailyWrapper = styled.div`
-  background-color: teal;
+  background-color: white;
   text-align: center;
+  color: gray;
   height: 350px;
   padding: 10px 5px 5px 5px;
   flex-grow: 1;
@@ -19,7 +20,7 @@ const DailyWeather = ({day, tempHigh, description, tempLow, icon}) => {
     return(
     <DailyWrapper>
         <h2> {day} </h2>
-        <Skycons icon={icon} color='white' />
+        <Skycons icon={icon} color='#a044ff' />
         <p> High of: {tempHigh} <WeatherIcons name='fahrenheit'  />  </p>
         <p> Low of: {tempLow} <WeatherIcons name='fahrenheit'  /> </p>
         <p> {description} </p>

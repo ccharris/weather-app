@@ -7,7 +7,7 @@ import WeatherIcons from 'react-weathericons';
 import Skycons from 'react-animated-weather';
 
 const CurrentWeatherWrapper = styled.div`
-  background-color: gray;
+  background-color: #a044ff;
   order: 1;
   flex-grow: 1;
   text-align: center;
