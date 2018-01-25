@@ -8,12 +8,14 @@ import Skycons from 'react-animated-weather';
 
 const CurrentWeatherWrapper = styled.div`
   background-color: gray;
-  padding: 10px;
-  width: 15%;
-  float: left;
+  order: 1;
+  flex-grow: 1;
   text-align: center;
-  height: 300px;
-  margin-top: 5px;
+  height: 350px;
+  padding: 10px 5px 5px 5px;
+  flex: auto;
+  min-width: 200px;
+  margin-top: 40px;
 `;
 
 const currentWeatherText = styled.p`

@@ -5,14 +5,15 @@ import Skycons from 'react-animated-weather';
 
 const DailyWrapper = styled.div`
   background-color: teal;
-  width: 17%;
-  margin-left: 5px;
-  margin-top: 5px;
-  margin-right: 0;
-  float: left;
   text-align: center;
-  height: 300px;
-  padding: 10px;
+  height: 350px;
+  padding: 10px 5px 5px 5px;
+  flex-grow: 1;
+  flex: auto;
+  margin-left: 5px;
+  width: 14%;
+  margin-top: -12.5px;
+
 `
 const DailyWeather = ({day, tempHigh, description, tempLow, icon}) => {
     return(

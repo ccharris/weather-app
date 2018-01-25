@@ -5,11 +5,12 @@ import { grabForecast } from '../actions';
 import styled from 'styled-components';
 import DailyWeather from './dailyWeather';
 
-
-const ForecastWrapper = styled.span`
-  float: left;
-  text-align: center;
-  width: 83.2%;
+const ForecastWrapper = styled.div`
+    order: 2;
+    flex-grow: 5;
+    margin: auto;
+    display: flex;
+    height: 300px;
 `;
 
 class weatherForecast extends Component {
