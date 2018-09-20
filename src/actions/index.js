@@ -18,7 +18,7 @@ export const updateCurrentWeather = (temp, description, humidity, pressure) => {
 const dark_sky_key = '9f8929cbf9a9be183a3d1775d308c679';
 
 export const grabWeather =  (lat, long) => {
-    return (dispatch) => fetch(`https://cors-escape.herokuapp.com/https://api.darksky.net/forecast/${dark_sky_key}/${lat},${long}`, {method: 'get'})
+    return (dispatch) => fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${dark_sky_key}/${lat},${long}`)
     .then(response => {
         if(response.ok){
             response.json().then(   

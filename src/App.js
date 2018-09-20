@@ -13,7 +13,7 @@ const WeatherWrapper = styled.div`
  height: 350px;
  width: 100%;
  align-items: center;
- background: #ECE9E6;  /* fallback for old browsers */
+ background: #ECE9E6; 
 `;
 
 class App extends Component {
